@@ -7,9 +7,16 @@ const app = express();
 
 app.use(morgan('dev'))
 app.use((req, res, next) => {
-	const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+	let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+	let color = null
 
-	console.log(chalk.redBright(`ip: ${ip}`));
+	if (ip === "::ffff:127.0.0.1") {
+		ip = "LOCALHOST"
+		color = chalk.redBright
+	} else color = chalk.greenBright
+
+
+	console.log(color(`ip: ${ip}`));
 
 	next();
 })
