@@ -13,7 +13,7 @@
   "dependencies": {
     "@nastyox/rando.js": "^2.0.5",
     "chalk": "^4.1.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "morgan": "^1.10.0"
   }
 }
